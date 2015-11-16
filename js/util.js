@@ -56,4 +56,7 @@ define(function (require, exports) {
 		
 	};
 	exports.ajax.count=0;
+	exports.clone = function(){
+		
+	}
 });
