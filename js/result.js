@@ -1,1 +1,4 @@
-({"code":1,"mes":"success"})
+({
+	"code": 1,
+	"mes": "success"
+})

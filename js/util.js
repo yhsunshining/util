@@ -1,6 +1,6 @@
-define(function (require, exports) {
+define(function(require, exports) {
 	'use strict'
-	exports.ajax = function (url,options) {
+	exports.ajax = function(url, options) {
 		var data = options.data;
 		var successfunc = options.onsuccess;
 		var errorfunc = options.onerror;
@@ -8,31 +8,28 @@ define(function (require, exports) {
 		var timeout = parseInt(options.timeout) || 600;
 		var timeoutFlag = false;
 		type = type.toUpperCase();
-		if(type==='JSONP'){
+		if (type === 'JSONP') {
 			var num = this.count++;
-			var name = "callback"+num;
+			var name = "callback" + num;
 			var script = document.createElement("script");
-        	try{
-        		window.onsuccess=successfunc;
-        	}
-        	finally{
-//      		script.parentNode.removeChild(script);
-        	}
-        	script.setAttribute("src",url);
-        	document.getElementsByTagName("body")[0].appendChild(script);
-		}
-		else {
+			try {
+				window.onsuccess = successfunc;
+			} finally {
+				//      		script.parentNode.removeChild(script);
+			}
+			script.setAttribute("src", url);
+			document.getElementsByTagName("body")[0].appendChild(script);
+		} else {
 			var xhr = new XMLHttpRequest();
-			var timer = setTimeout(function(){
+			var timer = setTimeout(function() {
 				timeoutFlag = true;
 				xhr.abort();
-			},timeout)
-			xhr.open(type,url,true);
-			
-			if(type ==="GET"){
+			}, timeout)
+			xhr.open(type, url, true);
+
+			if (type === "GET") {
 				xhr.send(null);
-			}
-			else {
+			} else {
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.send(JSON.stringify(data));
 			}
@@ -41,9 +38,9 @@ define(function (require, exports) {
 					clearTimeout(timer);
 					if (xhr.status === 200) {
 						if (successfunc) {
-	//						if(xhr.getResponseHeader("Content-Type").match(/^text/)){
-								successfunc(xhr.responseText);
-	//						}
+							//if(xhr.getResponseHeader("Content-Type").match(/^text/)){
+							successfunc(xhr.responseText);
+							//}
 						}
 					} else {
 						if (errorfunc) {
@@ -53,10 +50,10 @@ define(function (require, exports) {
 				}
 			};
 		}
-		
+
 	};
-	exports.ajax.count=0;
-	exports.clone = function(){
-		
+	exports.ajax.count = 0;
+	exports.clone = function() {
+
 	}
 });
