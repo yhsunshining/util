@@ -1,12 +1,6 @@
-@import 'func';
-@import 'mixins';
-@import 'var'; 
-@font-face {
-    font-family: 'mf';
-    src: url('../fonts/round.otf');
-    font-weight: normal;
-    font-style: normal;
-}
+@import '../func';
+@import '../mixins';
+$success-bg : #80c269;
 $btn-border:#bcbcbc;
 .pages{
         padding: 50px 0;
