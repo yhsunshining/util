@@ -1,0 +1,72 @@
+{
+  "validateIndentation": 4,
+  "requireSpaceBeforeBlockStatements": true,
+  "requireSpaceAfterKeywords": [
+    "if", "else", "for", "while",
+    "do", "try", "catch", "finally"
+  ],
+  "requireSpaceAfterObjectKeys": true,
+  "requireLeftStickedOperators": [ ":", ",", ";" ],
+  "requireSpaceBeforeBinaryOperators": [
+    "+",
+    "-",
+    "*",
+    "/",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    "|",
+    "||",
+    "&",
+    "&&"
+  ],
+  "requireSpaceAfterBinaryOperators": [
+    "+",
+    "-",
+    "*",
+    "/",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    "|",
+    "||",
+    "&",
+    "&&"
+  ],
+  "disallowSpaceAfterPrefixUnaryOperators": [ "++", "--", "+", "-", "~", "!" ],
+  "disallowSpacesInFunctionExpression": {
+    "beforeOpeningRoundBrace": true
+  },
+  "disallowSpacesInsideParentheses": true,
+  "disallowTrailingWhitespace": true,
+  "maximumLineLength": 120,
+  "requireOperatorBeforeLineBreak": [
+    "?",
+    "+",
+    "-",
+    "/",
+    "*",
+    "=",
+    "==",
+    "===",
+    "!=",
+    "!==",
+    ">",
+    ">=",
+    "<",
+    "<=",
+    ",",
+    ";",
+    "&&",
+    "&",
+    "||",
+    "|"
+  ],
+  "requireLineFeedAtFileEnd": true,
+  "validateQuoteMarks": "'",
+  "disallowMultipleLineStrings": true
+}
