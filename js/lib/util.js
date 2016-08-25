@@ -70,7 +70,7 @@ module.exports.realShuffle = (arr) => {
 }
 
 module.exports.unique = (arr) => {
-
+    return [...new Set(arr)];
 }
 
 module.exports.clone = (obj) => {

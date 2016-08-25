@@ -53,15 +53,67 @@
 
 	'use strict';
 
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 	var $ = __webpack_require__(2);
 	window.util = $;
 	console.log(window.util);
+
+	var a = function a(board) {
+	    var len = board.length;
+	    for (var i = 0; i < len; i++) {
+	        var arr = [].concat(_toConsumableArray(board[i])).filter(function (item) {
+	            if (item != '.') {
+	                return true;
+	            }
+	            return false;
+	        });
+	        if (arr.length != new Set(arr).size) {
+	            return false;
+	        }
+	    }
+
+	    for (var _i = 0; _i < len; _i++) {
+	        var _arr = [];
+	        for (var j = 0; j < len; j++) {
+	            var tem = board[j][_i];
+	            if (tem != '.') {
+	                _arr.push(tem);
+	            }
+	        }
+	        if (_arr.length != new Set(_arr).size) {
+	            return false;
+	        }
+	    }
+
+	    for (var _i2 = 0; _i2 < len; _i2 += 3) {
+	        for (var _j = 0; _j < len; _j += 3) {
+	            var _arr2 = [];
+	            for (var m = 0; m < 3; m++) {
+	                for (var n = 0; n < 3; n++) {
+	                    var num = board[_i2 + m][_j + n];
+	                    console.log(num);
+	                    if (num != '.') {
+	                        _arr2.push(num);
+	                    }
+	                }
+	            }
+	            if (_arr2.length != new Set(_arr2).size) {
+	                return false;
+	            }
+	        }
+	    }
+	    return true;
+	};
+	console.log(a([".87654321", "2........", "3........", "4........", "5........", "6........", "7........", "8........", "9........"]));
 
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	var base64 = __webpack_require__(3);
 	module.exports.ajax = function (url, options) {
@@ -131,7 +183,9 @@
 	    return arr;
 	};
 
-	module.exports.unique = function (arr) {};
+	module.exports.unique = function (arr) {
+	    return [].concat(_toConsumableArray(new Set(arr)));
+	};
 
 	module.exports.clone = function (obj) {
 	    return JSON.parse(JSON.stringify(obj));
@@ -301,7 +355,7 @@
 	                i += 2;
 	            } else {
 	                c2 = utftext.charCodeAt(i + 1);
-	                c3 = utftext.charCodeAt(i + 2);
+	                var c3 = utftext.charCodeAt(i + 2);
 	                string += String.fromCharCode((c & 15) << 12 | (c2 & 63) << 6 | c3 & 63);
 	                i += 3;
 	            }
